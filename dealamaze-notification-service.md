@@ -28,8 +28,8 @@ flowchart TD
     
     Factory -- "Email" --> SMTP["SMTP / Nodemailer"]
     Factory -- "Push" --> FCM["Firebase FCM"]
-    Factory -- "SMS" --> SMS["SMS Provider (Mocked)"]
-    Factory -- "Web" --> Web["Web Provider (Mocked)"]
+    Factory -- "SMS" --> SMS["SMS Provider"]
+    Factory -- "Web" --> Web["Web Provider"]
 ```
 
 ## Tech Stack
@@ -46,7 +46,7 @@ flowchart TD
 
 ## Key Design Decisions
 - **Dual-Mode Processing**: Supports both sync HTTP for instant alerts and async SQS for high-throughput batching.
-- **Provider Factory Pattern**: Enables pluggable notification channels (Email, Push, SMS, Web) without modifying core logic.
+- **Provider Factory Pattern**: Enables pluggable notification channels. All delivery logic (Email, Push, SMS, Web) is fully encapsulated within dedicated providers, keeping core logic clean.
 - **Intelligent Error Handling**: Distinguishes between retriable errors (DB failures, network timeouts) and permanent failures (invalid templates).
 - **FCM Token Auto-Cleanup**: Automatically purges stale device tokens to reduce database bloat.
 - **Cost-Optimized Polling**: Uses long-polling (`WaitTimeSeconds: 20`) to minimize empty SQS receives and AWS costs.
@@ -62,6 +62,4 @@ flowchart TD
 Designed and built the notification microservice end-to-end. Owned the system architecture, provider factory implementation, and SQS background worker integration.
 
 ## What I'd Improve Next
-- Integrate a live SMS provider to replace the mocked implementation.
-- Add WebSocket or SSE (Server-Sent Events) for real-time web notifications.
-- Implement advanced rate-limiting and exponential backoff for SQS retries.
+- My plan was to integrate websocket for web-push notifications but business doesn't require it for now.

@@ -7,29 +7,29 @@ An event-driven microservice powering e-commerce notifications (Email, Push, SMS
 
 ```mermaid
 flowchart TD
-    Client[Client / Microservices]
+    Client["Client / Microservices"]
     
-    Client -- "HTTP POST /send" --> Router[Express Router]
-    Client -- "Publish Event" --> SQS[AWS SQS Queues]
+    Client -- "HTTP POST /send" --> Router["Express Router"]
+    Client -- "Publish Event" --> SQS["AWS SQS Queues"]
     
-    Router --> Service[Notification Service]
+    Router --> Service["Notification Service"]
     
     subgraph Notification Service Core
-        Service --> Val[Validate Type]
-        Val --> Pref[Check Preferences]
-        Pref --> Tpl[Get Template]
-        Tpl --> Render[Render Handlebars+Juice]
-        Render --> DB[Log Pending to PostgreSQL]
-        DB --> Factory[Channel Factory]
+        Service --> Val["Validate Type"]
+        Val --> Pref["Check Preferences"]
+        Pref --> Tpl["Get Template"]
+        Tpl --> Render["Render Handlebars+Juice"]
+        Render --> DB["Log Pending to PostgreSQL"]
+        DB --> Factory["Channel Factory"]
     end
     
-    SQS -- "Poll (WaitTime: 20s)" --> Worker[SQS Consumer Worker]
-    Worker -- "Orders (High Priority)\nPromotions (Low Priority)" --> Service
+    SQS -- "Poll (WaitTime: 20s)" --> Worker["SQS Consumer Worker"]
+    Worker -- "Orders (High Priority)<br>Promotions (Low Priority)" --> Service
     
-    Factory -- "Email" --> SMTP[SMTP / Nodemailer]
-    Factory -- "Push" --> FCM[Firebase FCM]
-    Factory -- "SMS" --> SMS[SMS Provider (Mocked)]
-    Factory -- "Web" --> Web[Web Provider (Mocked)]
+    Factory -- "Email" --> SMTP["SMTP / Nodemailer"]
+    Factory -- "Push" --> FCM["Firebase FCM"]
+    Factory -- "SMS" --> SMS["SMS Provider (Mocked)"]
+    Factory -- "Web" --> Web["Web Provider (Mocked)"]
 ```
 
 ## Tech Stack

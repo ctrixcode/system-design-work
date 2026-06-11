@@ -40,7 +40,7 @@ graph TD
     Gateway -.->|Proxy| EssentialModules
 
     %% Inter-service communication
-    AuthService <==>|gRPC<br>(user.proto, vehicle.proto, notifications.proto)| EssentialModules
+    AuthService <-->|"gRPC<br>(user.proto, vehicle.proto, notifications.proto)"| EssentialModules
 
     %% Database connections
     AuthService --> AuthDB

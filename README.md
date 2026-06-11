@@ -23,6 +23,8 @@ I'm Chandrashekhar Kachawa — a software engineer building production backend s
 - **Portfolio:** [ctrix.pro](https://ctrix.pro)
 - **GitHub:** [github.com/ctrixcode](https://github.com/ctrixcode)
 - **LinkedIn:** [linkedin.com/in/chandrashekhar-kachawa-823017246](https://linkedin.com/in/chandrashekhar-kachawa-823017246)
+- **X:** [x.com/Ctrix_Dev](https://x.com/Ctrix_Dev)
+- **Resume:** [ctrix.pro/resume.pdf](https://www.ctrix.pro/resume.pdf)
 - **Email:** kachawachandra@gmail.com
 
 ---

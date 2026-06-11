@@ -20,15 +20,13 @@ sequenceDiagram
     FastAPI->>FastAPI: Shallow Validation
     FastAPI-->>Client: 202 Accepted (with report_id)
     
-    rect rgb(240, 248, 255)
-        note right of FastAPI: Background Processing
-        FastAPI->>S3: Upload Excel file
-        FastAPI->>Airflow: Trigger DAG
-        Airflow->>S3: Download Excel file
-        Airflow->>Airflow: Validate with Pydantic
-        Airflow->>DB: Bulk Insert (SQLAlchemy)
-        Airflow->>DB: Update Report Status
-    end
+    note right of FastAPI: Background Processing
+    FastAPI->>S3: Upload Excel file
+    FastAPI->>Airflow: Trigger DAG
+    Airflow->>S3: Download Excel file
+    Airflow->>Airflow: Validate with Pydantic
+    Airflow->>DB: Bulk Insert (SQLAlchemy)
+    Airflow->>DB: Update Report Status
 ```
 
 ## Tech Stack

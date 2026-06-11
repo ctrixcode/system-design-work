@@ -10,9 +10,9 @@ Architecture overviews and technical deep-dives for production systems I've desi
 
 | System | Domain | Stack | Scale |
 |--------|--------|-------|-------|
-| [NexAmaze Bulk Upload](nexamaze-bulk-upload.md) | Data Engineering | FastAPI, Airflow, Polars, PostgreSQL, AWS | 10K+ records/day |
-| [DealAmaze Notification Service](dealamaze-notification-service.md) | E-commerce Notifications | Node.js, PostgreSQL, AWS SQS, Firebase | 10K+ messages/day |
-| [GoTruks Logistics Platform](gotruks-logistics-platform.md) | Fleet Management | Node.js, gRPC, PostgreSQL, AWS, Next.js | 80+ modules |
+| [NexAmaze Bulk Upload](advika-production-systems/nexamaze-bulk-upload.md) | Data Engineering | FastAPI, Airflow, Polars, PostgreSQL, AWS | 10K+ records/day |
+| [DealAmaze Notification Service](advika-production-systems/dealamaze-notification-service.md) | E-commerce Notifications | Node.js, PostgreSQL, AWS SQS, Firebase | 10K+ messages/day |
+| [GoTruks Logistics Platform](advika-production-systems/gotruks-logistics-platform.md) | Fleet Management | Node.js, gRPC, PostgreSQL, AWS, Next.js | 80+ modules |
 
 ---
 
